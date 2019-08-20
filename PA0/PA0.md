@@ -183,7 +183,7 @@
 
 15. **PA0-Acquiring Source Code for PAs-Compiling and Running NEMU 中执行 `make run` 出错，提示打开目录失败什么的 ，提示中可以看出 Makefile 企图 `cd /tools/xxxxx` 但是 tools 文件夹位于与 Makefile 相同的层次**
 
-    权宜之计：修改 Makefile 文件，将51行的 `cd $(abspath $(@D)/..) && make` 的改为 `cd .$(abspath $(@D)/..) && make` ，即加一个点
+    权宜之计：修改 Makefile 文件，将51行的 `cd $(abspath $(@D)/..) && make` 的改为 `cd .$(abspath $(@D)/..) && make` ，即加一个点；**在 `make run` 之前需要恢复原来的样子，即把点去掉**
 
     疑问：照理看，abspath 返回的应该是绝对路径，不知道为什么这里被改变了，没有继续追踪
 
